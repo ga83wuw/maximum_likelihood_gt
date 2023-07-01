@@ -1,0 +1,15 @@
+{
+    "case": "skin",
+    "images_path": "/data/eurova/cumulus_database/numpy/melanoma/imgs_train.npy.gz",
+    "masks_path": "/data/eurova/cumulus_database/numpy/melanoma/imgs_mask_train.npy.gz",
+    "path_to_save": "/data/eurova/multi_annotators_project/LNLMI/Results/skin/skin_tf/",
+    "img_width": 192,
+    "img_height": 240,
+    "img_channels": 1,
+    "learning_rate": 1e-3,
+    "batch_size": 16,
+    "val_split": 0.1,
+    "epochs": 10,
+    "patience": 500
+  }
+  

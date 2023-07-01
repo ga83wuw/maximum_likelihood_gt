@@ -1,0 +1,17 @@
+{
+    "case": "coc",
+    "images_path": "/data/eurova/multi_annotators_project/LNLMI/oocytes_gent_raw/images",
+    "masks_path": "/data/eurova/multi_annotators_project/LNLMI/oocytes_gent_raw/avrg",
+    "path_to_save": "/data/eurova/multi_annotators_project/LNLMI/Results/coc/coc_tf/",
+    "img_width": 192,
+    "img_height": 240,
+    "img_channels": 1,
+    "learning_rate": 1e-3,
+    "batch_size": 16,
+    "val_split": 0.05,
+    "epochs": 10,
+    "patience": 500,
+    "tl": true,
+    "weights_path": "./data/pretrained_weights/skin_weights.pt"
+  }
+  

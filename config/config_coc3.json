@@ -1,0 +1,21 @@
+{
+    "case": "coc3",
+    "images_path": "/data/eurova/multi_annotators_project/LNLMI/oocytes_gent_raw/",
+    "masks_path": "/data/eurova/multi_annotators_project/LNLMI/oocytes_gent_raw/",
+    "path_to_save": "/data/eurova/multi_annotators_project/LNLMI/Results/coc/coc3_tf/",
+    "img_width": 192,
+    "img_height": 240,
+    "img_channels": 1,
+    "learning_rate": 1e-3,
+    "batch_size": 16,
+    "val_split": 0.05,
+    "test_split": 0.05,
+    "epochs": 10,
+    "patience": 500,
+    "tl": true,
+    "gcm": false,
+    "weights_path": "./data/pretrained_weights/coc_weights.pt",
+    "device": "cuda",
+    "alpha": 0.0
+  }
+  
