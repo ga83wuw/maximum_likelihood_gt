@@ -39,9 +39,9 @@ To set up the project environment, follow these steps:
 
 ## Usage
 
-# Disentangling Model and Confusion Matrices Generation
+### Disentangling Model and Confusion Matrices Generation
 
-## Overview
+#### Overview
 
 We recreate the proposed approaches for disentangling the ground truth from human experts' biases...
 
@@ -57,9 +57,9 @@ python bin/coc_model.py config/config_coc.json
 python bin/coc3_model.py config/config_coc3.json
 ```
 
-# Maximum Likelihood Ground Truth based on Uncertainty Areas
+### Maximum Likelihood Ground Truth based on Uncertainty Areas
 
-## Overview
+#### Overview
 
 We propose a novel method to compute a new ground truth, focusing on areas of high uncertainty among experts...
 
