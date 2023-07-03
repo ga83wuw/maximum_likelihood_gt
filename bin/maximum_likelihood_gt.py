@@ -150,7 +150,7 @@ def plot_comparison(array_prob, new_mask_uint8, save_path, idx):
     axs[1].set_title("new Mask")
     axs[1].axis("off")
 
-    axs[2].imshow((new_mask_uint8 / 255. - array_prob / 255.) * 255.)
+    axs[2].imshow(abs(new_mask_uint8 / 255. - array_prob / 255.) * 255.)
     axs[2].set_title("diff Mask")
     axs[2].axis("off")
 
