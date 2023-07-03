@@ -1,0 +1,12 @@
+{
+    "input_path_AR": "/data/eurova/cumulus_database/masks/AR/immature/",
+    "input_path_HS": "/data/eurova/cumulus_database/masks/HS/immature/",
+    "input_path_SG": "/data/eurova/cumulus_database/masks/SG/immature/",
+    "input_path_avrg": "/data/eurova/cumulus_database/masks/avrg/immature/",
+    "idx": 0,
+    "cm_AR_path": "./data/confusion_matrices/confusion_matrix_annotator_1.txt",
+    "cm_HS_path": "./data/confusion_matrices/confusion_matrix_annotator_2.txt",
+    "cm_SG_path": "./data/confusion_matrices/confusion_matrix_annotator_3.txt",
+    "save_path": "./data/saved_plots"
+  }
+  

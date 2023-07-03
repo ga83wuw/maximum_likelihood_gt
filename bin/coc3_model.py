@@ -70,6 +70,9 @@ class coc3_Model:
 
         self.total_cm = [self.cmA, self.cmB, self.cmC, self.cmDL]
 
+        self.confusion_matrices_path = Path('./data/confusion_matrices')
+        self.confusion_matrices_path.mkdir(parents = True, exist_ok = True)
+
         for i, cm in enumerate(self.total_cm):
             self.sum_cm = torch.zeros(2, 2)
             for tensor in cm:
@@ -79,6 +82,11 @@ class coc3_Model:
             if i != 3:
                 print("Confusion Matrix of Annotator", (i + 1))
                 print(self.avrg_cm)
+
+                # Save the confusion matrix as a file
+                cm_file = self.confusion_matrices_path / f'confusion_matrix_annotator_{i + 1}.txt'
+                np.savetxt(str(cm_file), self.avrg_cm.numpy())
+
             else:
                 print("Confusion Matrix of DL model")
                 print(self.avrg_cm)
@@ -110,7 +118,7 @@ class coc3_Model:
         else:
             self.model = initialize_model_lCM(self.IMG_CHANNELS).to(self.DEVICE)
             self.noisy_label_loss = noisy_label_loss_lCM
-            self.test = self.test_lGM
+            self.test = test_lGM
         if self.TL:
             self.pretrained_weights = torch.load(self.weights_path)
             
@@ -254,7 +262,7 @@ class coc3_Model:
                     self.output, self.output_cms = self.model(X)
 
                     # Calculate the Loss 
-                     self.loss, self.loss_dice, self.loss_trace = self.noisy_label_loss(self.output, self.output_cms, self.labels_all, self.names, alpha = self.ALPHA)
+                    self.loss, self.loss_dice, self.loss_trace = self.noisy_label_loss(self.output, self.output_cms, self.labels_all, self.names, alpha = self.ALPHA)
 
                     self.val_loss += self.loss.item()
                     self.val_lossAR += self.lossAR

@@ -3,6 +3,7 @@ import json
 
 from bin.coc_model import coc_Model
 from bin.skin_model import skin_Model
+from bin.coc3_model import coc3_Model
 
 def main(config_path):
 
@@ -25,7 +26,9 @@ def main(config_path):
         model.train_model()
 
     if case == 'coc3':
-        pass
+       
+        model = coc3_Model(config)
+        model.train_model()
 
 if __name__ == '__main__':
 
