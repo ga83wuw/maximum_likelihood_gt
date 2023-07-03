@@ -184,7 +184,7 @@ def plot_comparison_PIL(array_prob, new_mask_uint8, save_path, idx):
     # combined_image.paste(image_diff, (image_prob.width * 2, 0))
 
     # Create a new figure with three subplots
-    fig, axs = plt.subplots(1, 3, figsize=(12, 4))
+    fig, axs = plt.subplots(1, 3, figsize = (12, 4))
 
     # Display the images in the subplots
     axs[0].imshow(image_prob, cmap = 'gray')
@@ -200,7 +200,7 @@ def plot_comparison_PIL(array_prob, new_mask_uint8, save_path, idx):
     axs[2].axis("off")
 
     # Adjust the spacing between subplots
-    plt.tight_layout()
+    plt.subplots_adjust(wspace = 0.3)
 
     # Save the combined image
     os.makedirs(save_path, exist_ok = True)
