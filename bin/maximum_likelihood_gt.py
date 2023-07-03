@@ -166,6 +166,28 @@ def plot_comparison(array_prob, new_mask_uint8, save_path, idx):
     # Close the figure
     plt.close(fig)
 
+def plot_comparison_PIL(array_prob, new_mask_uint8, save_path, idx):
+    # Convert the arrays to PIL images
+    image_prob = Image.fromarray(array_prob)
+    image_new_mask = Image.fromarray(new_mask_uint8)
+
+    # Create a new image with the difference
+    diff = new_mask_uint8 / 255. - array_prob / 255.
+    diff_mask = (abs(diff) * 255.).astype('uint8')
+    diff_mask[diff_mask > 50] = 255
+    image_diff = Image.fromarray(diff_mask)
+
+    # Create a new image combining the three images horizontally
+    combined_image = Image.new("L", (image_prob.width * 3, image_prob.height))
+    combined_image.paste(image_prob, (0, 0))
+    combined_image.paste(image_new_mask, (image_prob.width, 0))
+    combined_image.paste(image_diff, (image_prob.width * 2, 0))
+
+    # Save the combined image
+    os.makedirs(save_path, exist_ok = True)
+    save_file = os.path.join(save_path, f"comparison_plot_{idx + 1}.png")
+    combined_image.save(save_file)
+
 def load_confusion_matrices(confusion_matrix_paths):
     
     matrices = []
@@ -218,4 +240,4 @@ if __name__ == '__main__':
     new_mask_uint8 = (new_mask * 255).astype(np.uint8)
 
     # Plot the comparison
-    plot_comparison(prob_array, new_mask_uint8, save_path, idx)
+    plot_comparison_PIL(prob_array, new_mask_uint8, save_path, idx)
