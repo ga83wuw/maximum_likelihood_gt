@@ -48,9 +48,9 @@ def load_masks(input_path_AR, input_path_HS, input_path_SG, input_path_avrg, idx
 
 def compute_prob_masks(array_AR, array_HS, array_SG):
     
-    array_AR = array_AR
-    array_HS = array_HS
-    array_SG = array_SG
+    array_AR = array_AR / 255.
+    array_HS = array_HS / 255.
+    array_SG = array_SG / 255.
     
     prob_array = (array_AR + array_HS + array_SG) / 3
     
@@ -177,16 +177,38 @@ def plot_comparison_PIL(array_prob, new_mask_uint8, save_path, idx):
     diff_mask[diff_mask > 50] = 255
     image_diff = Image.fromarray(diff_mask)
 
-    # Create a new image combining the three images horizontally
-    combined_image = Image.new("L", (image_prob.width * 3, image_prob.height))
-    combined_image.paste(image_prob, (0, 0))
-    combined_image.paste(image_new_mask, (image_prob.width, 0))
-    combined_image.paste(image_diff, (image_prob.width * 2, 0))
+    # # Create a new image combining the three images horizontally
+    # combined_image = Image.new("L", (image_prob.width * 3, image_prob.height))
+    # combined_image.paste(image_prob, (0, 0))
+    # combined_image.paste(image_new_mask, (image_prob.width, 0))
+    # combined_image.paste(image_diff, (image_prob.width * 2, 0))
+
+    # Create a new figure with three subplots
+    fig, axs = plt.subplots(1, 3, figsize=(12, 4))
+
+    # Display the images in the subplots
+    axs[0].imshow(image_prob, cmap = 'gray')
+    axs[0].set_title("prob Mask")
+    axs[0].axis("off")
+
+    axs[1].imshow(image_new_mask, cmap = 'gray')
+    axs[1].set_title("new Mask")
+    axs[1].axis("off")
+
+    axs[2].imshow(image_diff, cmap = 'gray')
+    axs[2].set_title("diff Mask")
+    axs[2].axis("off")
+
+    # Adjust the spacing between subplots
+    plt.tight_layout()
 
     # Save the combined image
     os.makedirs(save_path, exist_ok = True)
     save_file = os.path.join(save_path, f"comparison_plot_{idx + 1}.png")
-    combined_image.save(save_file)
+    plt.savefig(save_file)
+
+    # Close the figure
+    plt.close(fig)
 
 def load_confusion_matrices(confusion_matrix_paths):
     
@@ -238,6 +260,7 @@ if __name__ == '__main__':
 
     # Convert the new mask to uint8 for visualization
     new_mask_uint8 = (new_mask * 255).astype(np.uint8)
+    prob_array_uint8 = (prob_array * 255).astype(np.uint8)
 
     # Plot the comparison
-    plot_comparison_PIL(prob_array, new_mask_uint8, save_path, idx)
+    plot_comparison_PIL(prob_array_uint8, new_mask_uint8, save_path, idx)
