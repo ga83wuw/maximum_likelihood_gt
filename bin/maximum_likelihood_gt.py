@@ -139,6 +139,8 @@ def plot_comparison(array_prob, new_mask_uint8, save_path, idx):
     # Create a figure with three subplots
     fig, axs = plt.subplots(1, 3, figsize=(12, 4))
 
+    print(array_prob.max())
+    print(new_mask_uint8.max())
     # Display the images in the subplots
     axs[0].imshow(array_prob)
     axs[0].set_title("prob Mask")
@@ -148,7 +150,7 @@ def plot_comparison(array_prob, new_mask_uint8, save_path, idx):
     axs[1].set_title("new Mask")
     axs[1].axis("off")
 
-    axs[2].imshow((new_mask_uint8 / 255. - array_prob) * 255.)
+    axs[2].imshow((new_mask_uint8 / 255. - array_prob / 255.) * 255.)
     axs[2].set_title("diff Mask")
     axs[2].axis("off")
 
