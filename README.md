@@ -45,8 +45,8 @@ To set up the project environment, follow these steps:
 
 We recreate the proposed approaches for disentangling the ground truth from human experts' biases...
 
-```bash
-python bin/skin_model.py config/config_skin.json
+   ```bash
+   python bin/skin_model.py config/config_skin.json
 
 ```bash
 python bin/coc_model.py config/config_coc.json
