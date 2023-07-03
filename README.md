@@ -44,7 +44,6 @@ To set up the project environment, follow these steps:
 ## Overview
 
 We recreate the proposed approaches for disentangling the ground truth from human experts' biases...
-...
 
 ```bash
    python bin/skin_model.py config/config_skin.json
@@ -60,7 +59,6 @@ We recreate the proposed approaches for disentangling the ground truth from huma
 ## Overview
 
 We propose a novel method to compute a new ground truth, focusing on areas of high uncertainty among experts...
-...
 
 ```bash
    python bin/maximum_likelihood_gt.py config/config_mlgt.json
