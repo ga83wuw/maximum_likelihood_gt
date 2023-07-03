@@ -27,12 +27,12 @@ To set up the project environment, follow these steps:
    ```bash
    source maximum_likelihood_gt_env/bin/activate
    
-5. Navigate to the project directory:
+4. Navigate to the project directory:
 
    ```bash
    cd project-directory
    
-7. Install project dependencies:
+5. Install project dependencies:
 
    ```bash
    pip install -r requirements.txt
@@ -47,6 +47,7 @@ We recreate the proposed approaches for disentangling the ground truth from huma
 
    ```bash
    python bin/skin_model.py config/config_skin.json
+```
 
 ```bash
 python bin/coc_model.py config/config_coc.json
