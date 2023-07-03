@@ -46,13 +46,13 @@ To set up the project environment, follow these steps:
 We recreate the proposed approaches for disentangling the ground truth from human experts' biases...
 
 ```bash
-   python bin/skin_model.py config/config_skin.json
+python bin/skin_model.py config/config_skin.json
 
 ```bash
-   python bin/coc_model.py config/config_coc.json
+python bin/coc_model.py config/config_coc.json
 
 ```bash
-   python bin/coc3_model.py config/config_coc3.json
+python bin/coc3_model.py config/config_coc3.json
 
 # Maximum Likelihood Ground Truth based on Uncertainty Areas
 
@@ -61,7 +61,7 @@ We recreate the proposed approaches for disentangling the ground truth from huma
 We propose a novel method to compute a new ground truth, focusing on areas of high uncertainty among experts...
 
 ```bash
-   python bin/maximum_likelihood_gt.py config/config_mlgt.json
+python bin/maximum_likelihood_gt.py config/config_mlgt.json
 
 ## Contributing
 
