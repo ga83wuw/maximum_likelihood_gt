@@ -45,15 +45,17 @@ To set up the project environment, follow these steps:
 
 We recreate the proposed approaches for disentangling the ground truth from human experts' biases...
 
-   ```bash
-   python bin/skin_model.py config/config_skin.json
+```bash
+python bin/skin_model.py config/config_skin.json
 ```
 
 ```bash
 python bin/coc_model.py config/config_coc.json
+```
 
 ```bash
 python bin/coc3_model.py config/config_coc3.json
+```
 
 # Maximum Likelihood Ground Truth based on Uncertainty Areas
 
@@ -63,6 +65,7 @@ We propose a novel method to compute a new ground truth, focusing on areas of hi
 
 ```bash
 python bin/maximum_likelihood_gt.py config/config_mlgt.json
+```
 
 ## Contributing
 
@@ -73,17 +76,20 @@ Thank you for considering contributing to this project! Contributions are welcom
 
    ```bash
    git checkout -b feature/your-feature-name
+   ```
 
 3. Make your desired changes and ensure that the code passes all tests.
 4. Commit your changes:
 
    ```bash
    git commit -m "Add your commit message"
+   ```
 
 5. Push your branch to the remote repository:
 
    ```bash
    git push origin feature/your-feature-name
+   ```
 
 6. Open a pull request on the main repository.
 7. Provide a detailed description of your changes and why they are valuable.
