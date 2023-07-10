@@ -8,6 +8,13 @@ this insight to create a more sophisticated ground truth using maximum-likelihoo
 These findings contribute to the ongoing discussion of leveraging machine learning algorithms for medical image 
 segmentation, particularly in scenarios involving multiple human annotators.
 
+## Introduction
+
+The surge of supervised learning methods for segmentation lately has underscored the critical role of label quality in predicting performance. This issue is prevalent in the domain of medical imaging, where high annotation costs and inter-observer variability pose significant challenges. Acquiring labels commonly involves multiple experts providing their interpretations of the "true" segmentation labels, each influenced by their individual biases. The blind acceptance of these noisy labels as the ground truth restricts the potential effectiveness of segmentation algorithms. Hereby, we apply coupled convolutional neural network approaches, previously tested on artificial data, to a small-sized real-world dataset of bovine cumulus oocyte complexes for the first time. This dataset is crucial for healthy embryo development. The application revealed an important challenge: the inability to effectively learn distinct confusion matrices for each expert due to large areas of agreement.In response, we propose a novel method that focuses on areas of high uncertainty. This approach allows us to understand the individual characteristics better, extract their behavior, and use this insight to create a more sophisticated ground truth using maximum likelihood. These findings contribute to the ongoing discussion of leveraging machine learning algorithms for medical image segmentation, particularly in scenarios involving multiple human annotators.
+
+The architecture of the model using the proposed local confusion matrices can be found below:
+![Local CMs architecture proposal](figures/local_ARCH.png)
+
 ## Environment Setup
 
 To set up the project environment, follow these steps:
