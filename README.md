@@ -37,7 +37,7 @@ The architecture of the model using the proposed global confusion matrices can b
 ### Experts behavior
 
 Visualisation of the confusion matrices for each annotator, focusing on the areas of high uncertainty. This representation shows a clear behavior of each expert on the most difficult areas to identify.
-![Local CMs architecture proposal](figures/CMSs_horizontal.png)
+![Local CMs architecture proposal](figures/CMs_horizontal.png)
 
 ### New ground truth on areas on uncertainty using maximum likelihood
 
