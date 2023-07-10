@@ -10,10 +10,39 @@ segmentation, particularly in scenarios involving multiple human annotators.
 
 ## Introduction
 
-The surge of supervised learning methods for segmentation lately has underscored the critical role of label quality in predicting performance. This issue is prevalent in the domain of medical imaging, where high annotation costs and inter-observer variability pose significant challenges. Acquiring labels commonly involves multiple experts providing their interpretations of the "true" segmentation labels, each influenced by their individual biases. The blind acceptance of these noisy labels as the ground truth restricts the potential effectiveness of segmentation algorithms. Hereby, we apply coupled convolutional neural network approaches, previously tested on artificial data, to a small-sized real-world dataset of bovine cumulus oocyte complexes for the first time. This dataset is crucial for healthy embryo development. The application revealed an important challenge: the inability to effectively learn distinct confusion matrices for each expert due to large areas of agreement.In response, we propose a novel method that focuses on areas of high uncertainty. This approach allows us to understand the individual characteristics better, extract their behavior, and use this insight to create a more sophisticated ground truth using maximum likelihood. These findings contribute to the ongoing discussion of leveraging machine learning algorithms for medical image segmentation, particularly in scenarios involving multiple human annotators.
+The surge of supervised learning methods for segmentation lately has underscored the critical role of label quality in predicting performance. 
+This issue is prevalent in the domain of medical imaging, where high annotation costs and inter-observer variability pose significant challenges. 
+Acquiring labels commonly involves multiple experts providing their interpretations of the "true" segmentation labels, each influenced by their individual biases. 
+The blind acceptance of these noisy labels as the ground truth restricts the potential effectiveness of segmentation algorithms. 
+Hereby, we apply coupled convolutional neural network approaches, previously tested on artificial data, to a small-sized real-world dataset of bovine cumulus oocyte complexes for the first time. This dataset is crucial for healthy embryo development. 
+The application revealed an important challenge: the inability to effectively learn distinct confusion matrices for each expert due to large areas of agreement.
+In response, we propose a novel method that focuses on areas of high uncertainty. 
+This approach allows us to understand the individual characteristics better, extract their behavior, and use this insight to create a more sophisticated ground truth using maximum likelihood. 
+These findings contribute to the ongoing discussion of leveraging machine learning algorithms for medical image segmentation, particularly in scenarios involving multiple human annotators.
+
+Firstly, this is an insight into a sample of the data for cumulus oocyte complexes.
+![COC data](figures/data.png)
+
+and the areas of uncertainty in another sample:
+![disagreement](figures/uncertainty_examples_2.png)
+
+### Attempt to disentangle the data from the biased ground truth
 
 The architecture of the model using the proposed local confusion matrices can be found below:
 ![Local CMs architecture proposal](figures/local_ARCH.png)
+
+The architecture of the model using the proposed global confusion matrices can be found below:
+![Global CMs architecture proposal](figures/global_ARCH.png)
+
+### Experts behavior
+
+Visualisation of the confusion matrices for each annotator, focusing on the areas of high uncertainty. This representation shows a clear behavior of each expert on the most difficult areas to identify.
+![Local CMs architecture proposal](figures/CMSs_horizontal.png)
+
+### New ground truth on areas on uncertainty using maximum likelihood
+
+The architecture of the model to optimize the ground truth, using the confusion matrices obtained on the uncertain areas and the maximum likelihood theorem:
+![Optimizing GT](figures/Optimizing_GT.png)
 
 ## Environment Setup
 
